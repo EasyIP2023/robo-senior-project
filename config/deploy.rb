@@ -4,7 +4,7 @@ set :repo_url,        'git@github.com:EasyIP2023/robo-senior-project.git'
 set :application,     'robo'
 set :user,            'pi'
 set :puma_threads,    [5, 5]
-set :puma_workers,    0
+set :puma_workers,    1
 
 set :pty,             true
 set :use_sudo,        false
@@ -45,19 +45,6 @@ namespace :puma do
   end
 
   before :start, :make_dirs
-end
-
-namespace :database do
-  desc "reload the database with seed data"
-  task seed: [:stage] do
-    on primary fetch(:migration_role) do
-      within release_path do
-        with rails_env: fetch(:stage) do
-          execute :rake, "db:seed"
-        end
-      end
-    end
-  end
 end
 
 namespace :deploy do
