@@ -1,16 +1,21 @@
+require 'socket'
 class HomeController < ApplicationController
-
   def index
-    # @uploader = Recognize.find(1)
-    # @uploader = Recognize.new
-    # File.open('/home/vince/Downloads/you_owe_me.mp4') do |f|
-    #   @uploader.attachment = f
-    # end
-    # @uploader.save!
   end
 
-  def push_button
-    ExecuteWorker.perform_async
-    redirect :back, notice: "Button pushed, Bitch!!"
+  def move_right
+    redirect_to root_path, notice: "Moving Robot Right"
+  end
+
+  def move_left
+    redirect_to root_path, notice: "Moving Robot Left"
+  end
+
+  def move_down
+    redirect_to root_path, notice: "Moving Robot Down"
+  end
+
+  def move_up
+    redirect_to root_path, notice: "Moving Robot Up"
   end
 end

@@ -1,6 +1,28 @@
-%h1 YAY!!!! Everything works and is installed
-%p Find me in app/views/home/index.html.erb
+.row
+  .col-md-2
+  .col-md-6= videojs_rails sources: { mp4: '' }, width: '800', height: '500'
+  .col-md-3
+%hr
+.row
+  .col-md-4= link_to '', home_move_up_path, data: { keybinding: 'w' }
+  .col-md-4= link_to 'UP', home_move_up_path, class: 'btn btn-success btn-lg btn-block'
+  .col-md-4= link_to '', home_move_up_path, data: { keybinding: 'up' }
+%br
+.row
+  .col-md-6= link_to 'LEFT', home_move_left_path, class: 'btn btn-info btn-lg btn-block'
+  .col-md-6= link_to 'RIGHT', home_move_right_path, class: 'btn btn-warning btn-lg btn-block'
+  = link_to '', home_move_right_path, data: { keybinding: 'right' }
+  = link_to '', home_move_right_path, data: { keybinding: 'd' }
+  = link_to '', home_move_left_path, data: { keybinding: 'left' }
+  = link_to '', home_move_left_path, data: { keybinding: 'a' }
+%br
+.row
+  .col-md-4= link_to '', home_move_down_path, data: { keybinding: 'down' }
+  .col-md-4= link_to 'DOWN', home_move_down_path, class: 'btn btn-danger btn-lg btn-block'
+  .col-md-4= link_to '', home_move_down_path, data: { keybinding: 's' }
 
-= link_to 'Publish Product', push_button_home_path, method: :post, class: 'btn btn-success btn-lg'
-
-= videojs_rails sources: { mp4: '' }, width: '1800', height: '800'
+%hr
+%br
+.row
+  .col-md-4= link_to 'Find Object One', '', class: 'btn btn-success btn-lg btn-block'
+  .col-md-4= link_to 'Find Object Two', '', class: 'btn btn-info btn-lg btn-block'
