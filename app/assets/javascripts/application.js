@@ -12,9 +12,9 @@
 //
 //= require jquery3
 //= require jquery.turbolinks
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require mousetrap
-//= require turbolinks
 //= require video
 //= require_tree .

@@ -4,18 +4,18 @@ class HomeController < ApplicationController
   end
 
   def move_right
-    redirect_back fallback_location: root_path, notice: "Moving Robot Right"
+    redirect_to root_path, notice: "Moving Robot Right"
   end
 
   def move_left
-    redirect_back fallback_location: root_path, notice: "Moving Robot Left"
+    redirect_to root_path, notice: "Moving Robot Left"
   end
 
   def move_down
-    redirect_back fallback_location: root_path, notice: "Moving Robot Down"
+    redirect_to root_path, notice: "Moving Robot Down"
   end
 
   def move_up
-    redirect_back fallback_location: root_path, notice: "Moving Robot Up"
+    redirect_to root_path, notice: "Moving Robot Up"
   end
 end
