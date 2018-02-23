@@ -11,8 +11,7 @@ gem 'haml'
 
 gem 'puma', '~> 3.7'
 gem 'puma_worker_killer'
-gem 'sidekiq'
-gem 'sinatra', github: 'sinatra/sinatra'
+gem 'mousetrap-rails'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'sass-rails', '~> 5.0'
