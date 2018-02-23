@@ -26,4 +26,4 @@ production:
   database: robo_production
   host: 127.0.0.1
   username: robo_user
-  password: ENV["RAILS_ROBO_SQL_PASSWORD"]
+  password: 4cadinc
