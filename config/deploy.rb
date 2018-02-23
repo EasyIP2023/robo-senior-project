@@ -4,7 +4,7 @@ set :repo_url,        'git@github.com:EasyIP2023/robo-senior-project.git'
 set :application,     'robo'
 set :user,            'pi'
 set :puma_threads,    [5, 5]
-set :puma_workers,    1      # Server can handle it
+set :puma_workers,    0
 
 set :pty,             true
 set :use_sudo,        false
