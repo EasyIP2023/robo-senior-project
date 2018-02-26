@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-import socket, select
+import socket, select, Robot
+
+robot = Robot.Robot()
 
 response = b''
 
@@ -32,13 +34,20 @@ try:
         req = requests[fileno]
         if req == b'Move Right':
           print("Moving Robot Right")
+	  robot.right(127)
         elif req == b'Move Left':
           print("Moving Robot Left")
-        elif req == b'Move Up':
+          robot.left(127)
+	elif req == b'Move Up':
           print("Moving Robot Up")
-        elif req == b'Move Down':
+          robot.forward(127)
+	elif req == b'Move Down':
           print("Moving Robot Down")
-        epoll.modify(fileno, select.EPOLLOUT)
+          robot.backward(127)
+	elif req == b'Space':
+	  print("Stoping Robot")
+	  robot.stop()
+	epoll.modify(fileno, select.EPOLLOUT)
       elif event & select.EPOLLOUT:
         byteswritten = connections[fileno].send(responses[fileno])
         responses[fileno] = responses[fileno][byteswritten:]

@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   def index
   end
 
+  def stop
+    direction("Space")
+    redirect_back fallback_location: root_path, notice: "Robot STOP"
+  end
+
   def move_right
     direction("Move Right")
     redirect_back fallback_location: root_path, notice: "Moving Robot RIGHT"
