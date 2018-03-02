@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get :move_left
     get :move_down
     get :move_up
+    get :stop
   end
 
   root 'home#index'

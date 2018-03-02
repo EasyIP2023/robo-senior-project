@@ -20,6 +20,10 @@
   .col-md-4= link_to '', home_move_down_path, data: { keybinding: 'down' }
   .col-md-4= link_to 'DOWN', home_move_down_path, class: 'btn btn-danger btn-lg btn-block'
   .col-md-4= link_to '', home_move_down_path, data: { keybinding: 's' }
+%br
+.row
+  .col-lg-12= link_to 'STOP!!!!! MOFO', home_stop_path, class: 'btn btn-danger btn-lg btn-block'
+  = link_to '', home_stop_path, data: { keybinding: 'space' }
 
 %hr
 %br
