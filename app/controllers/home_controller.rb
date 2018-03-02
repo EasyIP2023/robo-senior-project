@@ -30,12 +30,7 @@ class HomeController < ApplicationController
 
   private
 
-    # TODO Come up with a better way to get this to work with epoll
     def direction(direct)
-      Thread.new {
-        sock = TCPSocket.open Socket.gethostname, 8080
-        sock.send(direct,0)
-        sock.close
-      }
+      $sock.send(direct,0)
     end
 end
