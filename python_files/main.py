@@ -17,7 +17,6 @@ epoll = select.epoll()
 epoll.register(serversocket.fileno(), select.EPOLLIN)
 
 def receive_request(req):
-  print(req)
   if req == b'Move Right':
     robot.right(127)
   elif req == b'Move Left':
