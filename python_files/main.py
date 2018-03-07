@@ -2,9 +2,9 @@
 
 import socket, select, Robot
 
-robot = Robot.Robot()
-
+EOL = b'\n' # Used to close client socket file descriptor
 response = b''
+robot = Robot.Robot()
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -25,7 +25,9 @@ def receive_request(req):
     robot.forward(127)
   elif req == b'Move Down':
     robot.backward(127)
-
+  elif req == b'Space':
+    robot.stop()
+	
 def main():
   try:
     connections = {}; requests = {}; responses = {}
@@ -44,7 +46,8 @@ def main():
           requests[fileno] = connections[fileno].recv(1024)
           req = requests[fileno]
           receive_request(req)
-          epoll.modify(fileno, select.EPOLLIN)
+          if EOL in req:
+            epoll.modify(fileno, select.EPOLLOUT)
         elif event & select.EPOLLOUT:
           byteswritten = connections[fileno].send(responses[fileno])
           responses[fileno] = responses[fileno][byteswritten:]
