@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :home do
     get :move_right
     get :move_left
@@ -8,5 +7,6 @@ Rails.application.routes.draw do
     get :stop
   end
 
+  post '/', to: 'home#index'
   root 'home#index'
 end

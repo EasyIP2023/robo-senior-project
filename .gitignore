@@ -34,3 +34,6 @@ public/assets/
 
 # Ignore Redis Dump
 dump.rdb
+
+# Ignore .pyc Files
+/python_files/*.pyc
