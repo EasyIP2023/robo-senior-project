@@ -12,7 +12,7 @@ time.sleep(1)
 
 GPIO.setmode(GPIO.BCM)
 
-# First element in array is the echo pin and the second is trig pin 
+# First element in array is the echo pin and the second is trig pin
 echo_trig_pins = {}
 echo_trig_pins['sensor_one']   = [22, 23]
 echo_trig_pins['sensor_two']   = [17, 24]
@@ -49,24 +49,23 @@ def get_sensor_data(sensor_name):
     GPIO.output(echo_trig_pins[sensor_name][1], True)
     time.sleep(0.00001)
     GPIO.output(echo_trig_pins[sensor_name][1], False)
-        
+
     while GPIO.input(echo_trig_pins[sensor_name][0]) == 0:
         pulse_start = time.time()
 
     while GPIO.input(echo_trig_pins[sensor_name][0]) == 1:
-	pulse_end = time.time()
+        pulse_end = time.time()
 
     pulse_duration = pulse_end - pulse_start
     distance = pulse_duration * 17150
     if distance < 10.00000 and (sensor_name == 'sensor_one' or sensor_name == 'sensor_two' or sensor_name == 'sensor_three'):
         data = sensor_name + ",MoveBotBack"
         sock.send(data)
-        time.sleep(1) # To give bot time to back that ass up
+        time.sleep(1)
     if distance < 10.00000 and (sensor_name == 'sensor_four' or sensor_name == 'sensor_five'):
         data = sensor_name + ",MoveBotForward"
         sock.send(data)
-        time.sleep(1) # To give bot time to forward that ass up
-
+        time.sleep(1)
 
 while True:
     get_sensor_data('sensor_one')
@@ -74,8 +73,7 @@ while True:
     get_sensor_data('sensor_three')
     get_sensor_data('sensor_four')
     get_sensor_data('sensor_five')
-	
+
 GPIO.cleanup()
 sock.send(b"\n") # Send end character
 sock.close()
-

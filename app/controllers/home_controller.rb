@@ -1,11 +1,10 @@
 require 'socket'
-require 'sinatra'
 require 'ralyxa'
 class HomeController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :index
+  #skip_before_action :verify_authenticity_token, only: :index
 
   def index
-    Ralyxa::Skill.handle(request)
+    #Ralyxa::Skill.handle(request)
   end
 
   def stop

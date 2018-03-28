@@ -17,4 +17,5 @@
 //= require jquery_ujs
 //= require mousetrap
 //= require video
+//= require video_stream
 //= require_tree .
