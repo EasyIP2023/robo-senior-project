@@ -1,4 +1,4 @@
-server '192.168.1.4', port: 22, roles: [:web, :app, :db], primary: true
+server '192.168.0.148', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:EasyIP2023/robo-senior-project.git'
 set :application,     'robo'
