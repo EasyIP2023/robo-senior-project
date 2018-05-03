@@ -77,6 +77,8 @@ while True:
         get_sensor_data('sensor_three')
         get_sensor_data('sensor_four')
         get_sensor_data('sensor_five')
+    	time.sleep(.1)
+ 	print("cycle")  
     except Exception as e:
         print(e)
 
